@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libinesh | Portfolio</title>
+    <style>
+        /* --- CSS VARIABLES (Easy to change colors here) --- */
+        :root {
+            --primary-color: #0056b3;  /* Dark Blue */
+            --accent-color: #4dabf7;   /* Light Blue */
+            --bg-color: #f4f7f6;       /* Light Grey Background */
+            --card-bg: #ffffff;        /* White */
+            --text-main: #333333;
+            --text-light: #666666;
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling without JS */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky; /* Sticks to top */
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- SECTIONS COMMON STYLES --- */
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #e3f2fd, #f4f7f6);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #003d80;
+        }
+
+        /* --- ABOUT & EDUCATION --- */
+        .about-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .college-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: var(--text-main);
+        }
+
+        /* --- SKILLS --- */
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .skill-box {
+            background-color: var(--card-bg);
+            padding: 15px 30px;
+            border-radius: 5px;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-weight: bold;
+        }
+
+        /* --- PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px); /* Moves up slightly on hover */
+        }
+
+        .project-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .project-body {
+            padding: 20px;
+        }
+
+        .project-body p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--text-main);
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .nav-links { display: none; } /* Hide links on small mobile for simplicity */
+            .hero h1 { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <nav>
+            <div class="logo">LIBINESH</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Hi, I'm Libinesh</h1>
+        <p>Bachelor's in Computer Science Student</p>
+        <a href="#projects" class="btn">See My Projects</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-card">
+            <div style="font-size: 3rem;">🎓</div>
+            <div class="college-name">Sri Krishna Adithya College of Arts and Science</div>
+            <p>
+                I am currently pursuing my Bachelor's degree in Computer Science. 
+                I am passionate about learning new web technologies and building logical applications.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-box">HTML</div>
+            <div class="skill-box">CSS</div>
+            <div class="skill-box">JavaScript</div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    🐦 Flappy Bird Clone
+                </div>
+                <div class="project-body">
+                    <p>A fun recreation of the popular Flappy Bird game built using Scratch. It features obstacle avoidance and scoring logic.</p>
+                    <span class="badge">Scratch</span>
+                    <span class="badge">Game Dev</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    🏦 Simply Banking System
+                </div>
+                <div class="project-body">
+                    <p>A simple banking application that demonstrates core banking concepts like account creation and transaction management.</p>
+                    <span class="badge">Logic</span>
+                    <span class="badge">Systems</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div style="text-align: center;">
+            <p style="margin-bottom: 20px;">Ready to work? Send me a message!</p>
+            <a href="mailto:libinesh@example.com" class="btn">📧 Email Me</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Libinesh. Built with pure HTML & CSS.</p>
+    </footer>
+
+</body>
+</html>
